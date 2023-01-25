@@ -7,9 +7,23 @@ clock = pygame.time.Clock()
 gameover = False
 
 
+#player variables
+xpos = 400
+ypos = 750
+moveLeft = False
+
+
 while not gameover: #GAME LOOP#######################################
     clock.tick(60) #FPS
     
+    #physics section__________________________________________
+    if moveLeft == True:
+        vx =- 3
+    else:
+        vx = 0
+        
+    #updates player position
+    xpos += vx
     
     #render section___________________________________________
     
