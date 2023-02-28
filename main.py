@@ -16,6 +16,21 @@ moveLeft = False
 while not gameover: #GAME LOOP#######################################
     clock.tick(60) #FPS
     
+    #Input Section-----------------------------------------------------------
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            gameover = True
+    
+    if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_LEFT:
+            moveLeft = True
+    
+    elif event.type == pygame.KEYUP:
+        if event.key == pygame.K_LEFT:
+            moveLeft = False
+            
+            
+            
     #physics section__________________________________________
     if moveLeft == True:
         vx =- 3
@@ -29,8 +44,10 @@ while not gameover: #GAME LOOP#######################################
     
     gamewindow.fill((255,255,255))
     
-    pygame.draw.rect(gamewindow, (200, 200, 100), (400, 750, 60, 20))
-    pygame.draw.rect(gamewindow, (200, 200, 100), (400, 750, 60, 20))
+    pygame.draw.rect(gamewindow, (0, 200, 50), (xpos, 750, 60, 20))
+    pygame.draw.rect(gamewindow, (0, 200, 50), (xpos+5, 745, 50, 20))
+    pygame.draw.rect(gamewindow, (0, 200, 50), (xpos+25, 736, 10, 20))
+    pygame.draw.rect(gamewindow, (0, 200, 50), (xpos+28, 732, 4, 20))
     pygame.draw.rect(gamewindow, (000, 000, 000), (400, 50, 60, 20))
     
     pygame.display.flip()
